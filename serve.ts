@@ -1,6 +1,6 @@
 import Server from 'lume/core/server.ts';
 import onDemand from 'lume/middlewares/on_demand.ts';
-import site from './_config.ts';
+import site, { siteConfig } from './_config.ts';
 import { redirects, router, notFound, cacheBusting } from './lib/middleware.ts';
 
 const server = new Server({
@@ -8,15 +8,25 @@ const server = new Server({
   port: 3000,
 });
 
-// domain routing middleware
+// Domain routing middleware for alternative domains
+// Configured via alt_domains in _site.yml
 server.use(async (request, next) => {
   const host = request.headers.get('host');
-  if (host && /^(www\.)?workingtitles\.xyz$/.test(host)) {
-    return new Response(null, {
-      status: 302,
-      headers: { Location: 'https://hirefrank.com/coaching/?ref=workingtitles.xyz' },
-    });
+
+  if (host && siteConfig.alt_domains && Array.isArray(siteConfig.alt_domains)) {
+    for (const altDomain of siteConfig.alt_domains) {
+      const domainPattern = new RegExp(`^(www\\.)?${altDomain.domain.replace('.', '\\.')}$`);
+      if (domainPattern.test(host)) {
+        const redirectUrl = `https://${siteConfig.domain}${altDomain.redirect_to}`;
+        const ref = altDomain.ref ? `?ref=${altDomain.ref}` : '';
+        return new Response(null, {
+          status: 302,
+          headers: { Location: `${redirectUrl}${ref}` },
+        });
+      }
+    }
   }
+
   return await next(request);
 });
 

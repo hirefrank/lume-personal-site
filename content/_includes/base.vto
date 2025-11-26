@@ -11,11 +11,16 @@
     <meta name="referrer" content="origin" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="stylesheet" href="/{{ cacheBusterVersion }}/styles.css" />
-    <!-- 100% privacy-first analytics --><script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    {{ if siteConfig.analytics.simple_analytics }}
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    {{ /if }}
+    {{ if siteConfig.analytics.vector_id }}
     <script>
       !function(e,r){try{if(e.vector)return void console.log("Vector snippet included more than once.");var t={};t.q=t.q||[];for(var o=["load","identify","on"],n=function(e){return function(){var r=Array.prototype.slice.call(arguments);t.q.push([e,r])}},c=0;c<o.length;c++){var a=o[c];t[a]=n(a)}if(e.vector=t,!t.loaded){var i=r.createElement("script");i.type="text/javascript",i.async=!0,i.src="https://cdn.vector.co/pixel.js";var l=r.getElementsByTagName("script")[0];l.parentNode.insertBefore(i,l),t.loaded=!0}}catch(e){console.error("Error loading Vector:",e)}}(window,document);
-      vector.load("7037091c-ed0c-410d-a92d-7202a27ab1ca");
+      vector.load("{{ siteConfig.analytics.vector_id }}");
     </script>
+    {{ /if }}
   </head>
   <body class="body-layout body-padding body-flex">
     <header class="site-header">
@@ -49,7 +54,7 @@
       <div class="{{ page.data.url === '/' ? 'home-container' : 'main-container' }}">
         {{ if page.data.url === "/" }}
         <div class="profile-image">
-          <img alt="Frank Harris" src="/images/mug.jpg">
+          <img alt="{{ site.title }}" src="{{ site.profile_image || '/images/profile.jpg' }}">
         </div>
         {{ /if }}
         {{ content }}
@@ -65,19 +70,14 @@
     <footer>
       <div class="footer">
         <ul class="footer-list">
-          <li>&copy; {{ new Date().getFullYear() }} Frank Harris</li>
+          <li>&copy; {{ new Date().getFullYear() }} {{ site.title }}</li>
         </ul>
       </div>
     </footer>
     <script type="text/javascript">
       document.addEventListener('DOMContentLoaded', (event) => {
-        console.log('DOMContentLoaded event fired');
-
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
-
-        console.log('menuToggle:', menuToggle);
-        console.log('navMenu:', navMenu);
 
         if (!menuToggle || !navMenu) {
           console.error('Menu toggle or nav menu not found');
@@ -85,17 +85,14 @@
         }
 
         menuToggle.addEventListener('click', (e) => {
-          console.log('Menu toggle clicked');
           e.stopPropagation();
           menuToggle.classList.toggle('menu-open');
           navMenu.classList.toggle('hidden');
           navMenu.classList.toggle('flex');
-          console.log('Menu classes after toggle:', navMenu.classList);
         });
 
         document.addEventListener('click', (event) => {
           if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
-            console.log('Closing menu');
             menuToggle.classList.remove('menu-open');
             navMenu.classList.add('hidden');
             navMenu.classList.remove('flex');
@@ -106,7 +103,6 @@
         function handleResize() {
           clearTimeout(resizeTimeout);
           resizeTimeout = setTimeout(() => {
-            console.log('Window resized');
             if (window.innerWidth >= 1024) {
               menuToggle.classList.remove('menu-open');
               navMenu.classList.remove('hidden');
@@ -117,7 +113,6 @@
                 navMenu.classList.remove('flex');
               }
             }
-            console.log('Menu classes after resize:', navMenu.classList);
           }, 250);
         }
 

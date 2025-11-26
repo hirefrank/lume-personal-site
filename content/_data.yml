@@ -175,7 +175,7 @@ faqs:
 
 metas:
   site: =site.description
-  twitter: '@hirefrank'
-  icon: /images/mug.jpg
+  twitter: =siteConfig.social.twitter
+  icon: =site.profile_image
   lang: en
   generator: true

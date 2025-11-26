@@ -1,0 +1,62 @@
+# =============================================================================
+# REDIRECTS CONFIGURATION
+# =============================================================================
+# Configure URL redirects and short links for your site.
+# Each entry maps a path to a destination URL.
+#
+# Format:
+#   - from: "/source-path"
+#     to: "/destination-path" or "https://external-url.com"
+#     code: 301 (permanent) or 302 (temporary) - defaults to 301
+#
+# =============================================================================
+
+redirects:
+  # -------------------------------------------------------------------------
+  # Legacy URL Redirects
+  # -------------------------------------------------------------------------
+  # Redirect old URLs to new locations (useful after site restructuring)
+
+  # Example: Old date-based URLs to new structure
+  # - from: "/14/08/old-post/"
+  #   to: "/posts/new-post/"
+
+  # -------------------------------------------------------------------------
+  # Short Links
+  # -------------------------------------------------------------------------
+  # Create memorable short URLs that redirect to longer paths
+
+  # Example short links:
+  # - from: "/cal"
+  #   to: "https://cal.com/yourhandle/meeting"
+  #   code: 302
+
+  # - from: "/linkedin"
+  #   to: "https://linkedin.com/in/yourhandle"
+  #   code: 302
+
+  # -------------------------------------------------------------------------
+  # File Redirects
+  # -------------------------------------------------------------------------
+  # Short paths to static files
+
+  # - from: "/resume"
+  #   to: "/extras/resume.pdf"
+
+  # -------------------------------------------------------------------------
+  # Email Links
+  # -------------------------------------------------------------------------
+  # - from: "/mailto"
+  #   to: "mailto:hello@example.com?subject=Hello"
+  #   code: 302
+
+  # -------------------------------------------------------------------------
+  # Tag/Archive Redirects
+  # -------------------------------------------------------------------------
+  # Redirect removed pages to alternatives
+
+  # - from: "/tags"
+  #   to: "/writings"
+
+  # - from: "/archives"
+  #   to: "/writings"

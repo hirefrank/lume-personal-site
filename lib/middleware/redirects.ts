@@ -1,58 +1,50 @@
-import redirects from 'lume/middlewares/redirects.ts';
+import redirectsMiddleware from 'lume/middlewares/redirects.ts';
+import { parse as parseYaml } from 'lume/deps/yaml.ts';
 
-export const definitions = {
-  '/w9': '/extras/w9.pdf',
-  '/14/08/why-is-it-so-hard/': '/videos/why-is-it-so-hard/',
-  '/18/03/rainbows-rainier/': '/videos/rainbows-rainier/',
-  '/17/03/bey-toe-ven/': '/videos/bey-toe-ven/',
-  '/16/03/past-to-find-the-future/': '/videos/past-to-find-the-future/',
-  '/15/06/cooke-blowin-in-the-wind/': '/videos/cooke-blowin-in-the-wind/',
-  '/14/09/apple-in-your-mouth/': '/videos/apple-in-your-mouth/',
-  '/14/09/long-shadows/': '/videos/long-shadows/',
-  '/tag/summer': '/writings',
-  '/tag/video': '/writings',
-  '/tag/twitter': '/writings',
-  '/tag/movies': '/writings',
-  '/tag/music': '/writings',
-  '/tag/nyc': '/writings',
-  '/feeds/rss.xml': '/writings',
-  '/tags': '/writings',
-  '/archives': '/writings',
-  '/lets-chat': {
-    to: 'https://cal.com/hirefrank/meet-and-greet',
-    code: 302,
-  },
-  '/discovery': {
-    to: 'https://cal.com/hirefrank/discovery-call-initial',
-    code: 302,
-  },
-  '/vip': {
-    to: 'https://cal.com/hirefrank/vip-catch-up',
-    code: 302,
-  },
-  '/calp': {
-    to: '/vip',
-    code: 302,
-  },
-  '/cal': {
-    to: '/vip',
-    code: 302,
-  },
-  '/mailto': {
-    to: 'mailto:frank@hirefrank.com?subject=Hi!',
-    code: 302,
-  },
-  '/resume': '/extras/resume.pdf',
-};
+interface RedirectEntry {
+  from: string;
+  to: string;
+  code?: 301 | 302 | 303 | 307 | 308 | 200;
+}
 
-export default redirects({
-  redirects: definitions as Record<
-    string,
-    | string
-    | {
-        to: string;
-        code: 301 | 302 | 303 | 307 | 308 | 200;
+interface RedirectsConfig {
+  redirects: RedirectEntry[];
+}
+
+// Load redirects from YAML config file
+let redirectsConfig: RedirectsConfig = { redirects: [] };
+
+try {
+  const configPath = './content/_redirects.yml';
+  const configText = await Deno.readTextFile(configPath);
+  redirectsConfig = parseYaml(configText) as RedirectsConfig;
+} catch (error) {
+  // Config file doesn't exist or is invalid - use empty redirects
+  console.warn('No _redirects.yml found or invalid format, using empty redirects');
+}
+
+// Convert array format to the object format Lume expects
+type RedirectValue = string | { to: string; code: 301 | 302 | 303 | 307 | 308 | 200 };
+const definitions: Record<string, RedirectValue> = {};
+
+if (redirectsConfig.redirects && Array.isArray(redirectsConfig.redirects)) {
+  for (const redirect of redirectsConfig.redirects) {
+    if (redirect.from && redirect.to) {
+      if (redirect.code && redirect.code !== 301) {
+        definitions[redirect.from] = {
+          to: redirect.to,
+          code: redirect.code,
+        };
+      } else {
+        definitions[redirect.from] = redirect.to;
       }
-  >,
+    }
+  }
+}
+
+export { definitions };
+
+export default redirectsMiddleware({
+  redirects: definitions,
   strict: false,
 });

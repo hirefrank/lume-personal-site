@@ -1,6 +1,13 @@
 import * as pdfjs from 'pdfjs';
-import 'dotenv';
+import { loadSync } from 'https://deno.land/std@0.218.0/dotenv/mod.ts';
 import OpenAI from 'openai';
+
+// Load .env file if it exists, but don't fail if variables are missing
+try {
+  loadSync({ allowEmptyValues: true, export: true });
+} catch {
+  // .env file doesn't exist, which is fine for builds without AI features
+}
 import { generateEmailPrompt } from './prompt.ts';
 
 export const MAX_OUTPUT_TOKENS = 1024;

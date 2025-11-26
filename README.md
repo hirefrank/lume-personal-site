@@ -1,77 +1,143 @@
-# Frank Harris Personal Website
+# Lume Personal Website Template
 
-This repository contains the source code for Frank Harris's personal website,
-built using Deno's Lume framework, Tailwind CSS for styling, and VTO as the
-template engine.
+A modern, customizable personal website template built with [Lume](https://lume.land/) (Deno's static site generator), Tailwind CSS, and VTO templates.
 
-## 🚀 Features
+Featured in the [Lume Template Showcase](https://lume.land/showcase/).
 
-- Built with Lume, a static site generator for Deno
-- Responsive design with custom Tailwind CSS styling
-- Dynamic content rendering using VTO templates
-- Blog posts and project showcases
+## Features
 
-- Automatic deployment to Deno Deploy
-- Custom intro email generator
-- Calendar integration for coaching sessions
+- Responsive, mobile-first design
+- Blog/writings section with markdown support
+- Projects showcase with emoji icons
+- Coaching/services section with pricing cards
+- Testimonials and FAQ components
+- Video embeds with metadata
+- AI-powered intro email generator (optional)
+- Privacy-first analytics support (optional)
+- Configurable social links
+- URL redirects and short links
+- Automatic sitemap and robots.txt
 
-## 🛠️ Technologies Used
+## Quick Start
+
+```bash
+# Clone the template
+git clone https://github.com/hirefrank/www.git my-website
+cd my-website
+
+# Install Deno (if needed)
+# https://deno.land/manual/getting_started/installation
+
+# Configure your site
+# Edit content/_site.yml with your information
+
+# Run locally
+deno task serve
+
+# Build for production
+deno task build
+```
+
+## Configuration
+
+All site personalization is done in `content/_site.yml`:
+
+```yaml
+name: "Your Name"
+handle: "yourhandle"
+email: "hello@example.com"
+domain: "example.com"
+tagline: "Your tagline here"
+profile_image: "/images/profile.jpg"
+
+social:
+  github: "username"
+  twitter: "username"
+  linkedin: "in/username"
+```
+
+See [TEMPLATE.md](TEMPLATE.md) for complete documentation.
+
+## Project Structure
+
+```
+├── _config.ts              # Lume configuration
+├── serve.ts                # Production server
+├── content/
+│   ├── _site.yml          # Site configuration
+│   ├── _data.yml          # Content data (projects, plans, etc.)
+│   ├── _redirects.yml     # URL redirects
+│   ├── _includes/         # Templates (VTO)
+│   ├── pages/             # Main pages (markdown)
+│   ├── writings/          # Blog posts
+│   ├── videos/            # Video embeds
+│   └── static/            # Assets (images, fonts, favicon)
+├── lib/
+│   ├── plugins.ts         # Lume plugins
+│   ├── types.ts           # TypeScript interfaces
+│   └── middleware/        # Server middleware
+└── intro/                 # AI intro feature (optional)
+```
+
+## Technologies
 
 - [Deno](https://deno.land/) - JavaScript/TypeScript runtime
-- [Lume](https://lume.land/): A static site generator for Deno
-- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework
-- [VTO](https://lume.land/plugins/vento/): A template engine for Lume
-- [OpenAI](https://openai.com/): For AI-powered intro email generation
+- [Lume](https://lume.land/) - Static site generator
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+- [VTO](https://lume.land/plugins/vento/) - Template engine
+- [OpenAI](https://openai.com/) - AI features (optional)
 
-- [PDF.js](https://mozilla.github.io/pdf.js/): For PDF parsing
+## Deployment
 
-## 🏗️ Project Structure
+### Deno Deploy
 
-```
-.
-├── _config.ts
-├── content/
-│   ├── _data.yml
-│   ├── _includes/
-│   ├── pages/
-│   ├── writings/
-│   └── styles.css
-├── lib/
-│   ├── plugins.ts
-│   ├── intro.ts
-│   └── middleware/
-├── .github/workflows/
-│   └── deploy.yml
-└── serve.ts
+1. Push to GitHub
+2. Connect to [Deno Deploy](https://deno.com/deploy)
+3. Set entry point: `serve.ts`
+4. Add `OPENAI_API_KEY` env var (if using AI features)
+
+### Static Hosting
+
+```bash
+deno task build
+# Deploy _site/ folder to Netlify, Vercel, GitHub Pages, etc.
 ```
 
-## 🚀 Getting Started
+## Customization Checklist
 
-To run the project locally:
+- [ ] Edit `content/_site.yml` with your info
+- [ ] Replace `content/static/images/profile.jpg`
+- [ ] Replace `content/static/favicon.ico`
+- [ ] Update pages in `content/pages/`
+- [ ] Update projects in `content/_data.yml`
+- [ ] Configure redirects in `content/_redirects.yml`
+- [ ] Customize colors in `content/styles.css`
 
-1. Ensure you have [Deno](https://deno.land/) installed
-2. Clone this repository
-3. Create a `.env` file with required environment variables:
-   ```
-   OPENAI_API_KEY=your_key_here
-   ```
-4. Run `deno task serve` to start the development server
-5. Open http://localhost:3000 in your browser
+## Environment Variables
 
-## 🚢 Deployment
+```bash
+# Copy example and configure
+cp .env.example .env
+```
 
-The site is automatically deployed to Deno Deploy when changes are pushed to the
-main branch. The deployment configuration can be found in
-`.github/workflows/deploy.yml`.
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `OPENAI_API_KEY` | OpenAI API key for intro feature | No |
+| `SITE_DOMAIN` | Override domain for dev | No |
 
-## 📝 Content Management
+## Documentation
 
-- Blog posts are stored in content/writings/ as Markdown files
-- Pages are stored in content/pages/ as Markdown files
-- Site configuration is in \_config.ts
-- Global data is stored in content/\_data.yml
-- Styles are managed through Tailwind CSS in content/styles.css
+See [TEMPLATE.md](TEMPLATE.md) for:
+- Complete configuration reference
+- Content structure guide
+- Styling customization
+- Feature documentation
+- Deployment instructions
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+MIT License - use freely for personal or commercial projects.
+
+## Credits
+
+Originally created by [Frank Harris](https://hirefrank.com). Built with [Lume](https://lume.land/).

@@ -1,0 +1,57 @@
+# =============================================================================
+# SITE CONFIGURATION
+# =============================================================================
+# This file contains all personalizable settings for your site.
+# Update these values to customize the template for your own use.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Site Identity
+# -----------------------------------------------------------------------------
+name: "Your Name"                    # Your full name (used in footer, meta tags)
+handle: "yourhandle"                 # Your handle/username (used in logo, URLs)
+email: "hello@example.com"           # Contact email address
+domain: "example.com"                # Your domain (without https://)
+tagline: "Your tagline here"         # Short description for meta tags
+profile_image: "/images/profile.jpg" # Path to your profile photo
+
+# -----------------------------------------------------------------------------
+# Social Media Links
+# -----------------------------------------------------------------------------
+# Leave empty or remove lines for platforms you don't use
+social:
+  github: "username"                 # github.com/{username}
+  twitter: "username"                # twitter.com/{username}
+  instagram: "username"              # instagram.com/{username}
+  linkedin: "in/username"            # linkedin.com/{linkedin}
+  bluesky: ""                        # bsky.app/profile/{handle}
+  mastodon: ""                       # mastodon.social/@{handle}
+  youtube: ""                        # youtube.com/@{handle}
+
+# -----------------------------------------------------------------------------
+# External Services & Booking Links
+# -----------------------------------------------------------------------------
+# These are used in redirects. Leave empty to disable.
+services:
+  cal_discovery: ""                  # e.g., "https://cal.com/you/discovery"
+  cal_booking: ""                    # e.g., "https://cal.com/you/booking"
+  cal_meet: ""                       # e.g., "https://cal.com/you/meet"
+
+# -----------------------------------------------------------------------------
+# Analytics (Optional)
+# -----------------------------------------------------------------------------
+# Leave empty to disable analytics tracking
+analytics:
+  simple_analytics: false            # Enable Simple Analytics (privacy-first)
+  simple_analytics_domain: ""        # Custom domain for Simple Analytics
+  vector_id: ""                      # Vector analytics ID
+
+# -----------------------------------------------------------------------------
+# Alternative Domains (Optional)
+# -----------------------------------------------------------------------------
+# Redirect alternative domains to specific pages
+# Example: workingtitles.xyz -> /coaching/
+alt_domains: []
+  # - domain: "otherdomain.com"
+  #   redirect_to: "/some-page/"
+  #   ref: "otherdomain"
