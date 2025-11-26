@@ -22,7 +22,7 @@ Featured in the [Lume Template Showcase](https://lume.land/showcase/).
 
 ```bash
 # Clone the template
-git clone https://github.com/hirefrank/www.git my-website
+git clone https://github.com/hirefrank/lume-personal-site.git my-website
 cd my-website
 
 # Install Deno (if needed)
@@ -85,7 +85,8 @@ See [TEMPLATE.md](TEMPLATE.md) for complete documentation.
 - [Lume](https://lume.land/) - Static site generator
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
 - [VTO](https://lume.land/plugins/vento/) - Template engine
-- [OpenAI](https://openai.com/) - AI features (optional)
+- [OpenAI](https://openai.com/) - AI-powered intro email generation (optional)
+- [PDF.js](https://mozilla.github.io/pdf.js/) - PDF parsing for resume uploads (optional)
 
 ## Deployment
 
