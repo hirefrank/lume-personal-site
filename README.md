@@ -12,7 +12,6 @@ Featured in the [Lume Template Showcase](https://lume.land/showcase/).
 - Coaching/services section with pricing cards
 - Testimonials and FAQ components
 - Video embeds with metadata
-- AI-powered intro email generator (optional)
 - Privacy-first analytics support (optional)
 - Configurable social links
 - URL redirects and short links
@@ -72,11 +71,10 @@ See [TEMPLATE.md](TEMPLATE.md) for complete documentation.
 │   ├── writings/          # Blog posts
 │   ├── videos/            # Video embeds
 │   └── static/            # Assets (images, fonts, favicon)
-├── lib/
-│   ├── plugins.ts         # Lume plugins
-│   ├── types.ts           # TypeScript interfaces
-│   └── middleware/        # Server middleware
-└── intro/                 # AI intro feature (optional)
+└── lib/
+    ├── plugins.ts         # Lume plugins
+    ├── types.ts           # TypeScript interfaces
+    └── middleware/        # Server middleware
 ```
 
 ## Technologies
@@ -85,8 +83,6 @@ See [TEMPLATE.md](TEMPLATE.md) for complete documentation.
 - [Lume](https://lume.land/) - Static site generator
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
 - [VTO](https://lume.land/plugins/vento/) - Template engine
-- [OpenAI](https://openai.com/) - AI-powered intro email generation (optional)
-- [PDF.js](https://mozilla.github.io/pdf.js/) - PDF parsing for resume uploads (optional)
 
 ## Deployment
 
@@ -95,7 +91,6 @@ See [TEMPLATE.md](TEMPLATE.md) for complete documentation.
 1. Push to GitHub
 2. Connect to [Deno Deploy](https://deno.com/deploy)
 3. Set entry point: `serve.ts`
-4. Add `OPENAI_API_KEY` env var (if using AI features)
 
 ### Static Hosting
 
@@ -114,25 +109,12 @@ deno task build
 - [ ] Configure redirects in `content/_redirects.yml`
 - [ ] Customize colors in `content/styles.css`
 
-## Environment Variables
-
-```bash
-# Copy example and configure
-cp .env.example .env
-```
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `OPENAI_API_KEY` | OpenAI API key for intro feature | No |
-| `SITE_DOMAIN` | Override domain for dev | No |
-
 ## Documentation
 
 See [TEMPLATE.md](TEMPLATE.md) for:
 - Complete configuration reference
 - Content structure guide
 - Styling customization
-- Feature documentation
 - Deployment instructions
 
 ## License

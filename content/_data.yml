@@ -12,12 +12,6 @@ sections:
     show: true
     includes:
       - 'coaching.vto'
-  - url: '/speaking/'
-    label: 'Speaking'
-    show: false
-  - url: '/uses/'
-    label: 'Uses'
-    show: false
   - url: '/projects/'
     label: 'Projects'
     show: true
@@ -29,11 +23,6 @@ sections:
     includes:
       - 'calendar.vto'
       - 'social.vto'
-  - url: '/intro/'
-    label: 'Intro'
-    show: false
-    includes:
-      - 'intro.vto'
 
 projects:
   - title: 'Gmail Attachment Extractor'
@@ -48,12 +37,6 @@ projects:
     emoji: '💰'
     post: null
     url: 'https://calculator.hirefrank.com'
-  - title: 'Intro'
-    summary: 'Need someone in your network to make an introduction? Craft the perfect email that makes it easy for them to help.'
-    date: '2024-12-11'
-    emoji: '👋'
-    post: null
-    url: '/intro/'
   - title: 'Field Guide to Culinary Democracy'
     summary: "I analyzed over 500,000 words from 7,605 The NY Times Cooking comments labeled 'most helpful'."
     date: '2024-10-07'
@@ -78,13 +61,6 @@ projects:
     emoji: '🗃️'
     post: null
     url: 'https://github.com/hirefrank/pg-to-sqlite'
-  - title: 'Jobasaurus'
-    summary: 'project description goes here'
-    date: '2023-12-01'
-    emoji: '🦕'
-    draft: 'true'
-    post: null
-    url: 'https://jobasaur.us'
   - title: 'Zoom Backup'
     summary: 'Automates the process of backing up recorded Zoom meetings to a GCS bucket.'
     date: '2021-02-27'
@@ -115,13 +91,6 @@ projects:
     emoji: '⛽'
     post: null
     url: 'https://github.com/hirefrank/nycgasfinder'
-  - title: 'NYC Summer Films'
-    summary: 'A comprehensive calendar of free outdoor movie screenings across New York City during the summer of 2014.'
-    date: '2014-05-18'
-    emoji: '🎬'
-    draft: 'true'
-    post: null
-    url: null
 
 plans:
   - name: Individual Contributor
@@ -146,8 +115,6 @@ plans:
       - Go-to-market plans & pricing
       - Navigating company milestones
       - 360 feedback from your team
-      - Generative AI strategy <sup class="text-accent">New!</sup>
-      - Custom prompts for executive needs <sup class="text-accent">New!</sup>
       - Available on Slack between sessions
       - 12 session minimum
 

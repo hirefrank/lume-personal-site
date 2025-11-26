@@ -1,6 +1,6 @@
 import lume from 'lume/mod.ts';
 import plugins from './lib/plugins.ts';
-import { redirects, router, cacheBusting, notFound } from './lib/middleware.ts';
+import { redirects, cacheBusting, notFound } from './lib/middleware.ts';
 import { parse as parseYaml } from 'lume/deps/yaml.ts';
 import type { SiteConfig } from './lib/types.ts';
 
@@ -18,7 +18,7 @@ const site = lume({
   src: './content',
   location: new URL(siteUrl),
   server: {
-    middlewares: [redirects, router, notFound(), cacheBusting()],
+    middlewares: [redirects, notFound(), cacheBusting()],
   },
 });
 

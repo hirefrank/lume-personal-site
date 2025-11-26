@@ -10,7 +10,6 @@ A modern, customizable personal website template built with [Lume](https://lume.
 - Projects showcase
 - Coaching/services section with pricing cards
 - Testimonials and FAQ sections
-- AI-powered intro email generator (optional)
 - Privacy-first analytics support (optional)
 - Configurable social links
 - URL redirects and short links
@@ -23,7 +22,7 @@ A modern, customizable personal website template built with [Lume](https://lume.
 
 ```bash
 # Clone the template
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git my-website
+git clone https://github.com/hirefrank/lume-personal-site.git my-website
 cd my-website
 
 # Install Deno if you haven't already
@@ -293,20 +292,6 @@ To change fonts, update `lib/plugins.ts` and add font files to `content/static/f
 
 ## Optional Features
 
-### AI Intro Email Generator
-
-This feature helps visitors craft introduction emails. To enable:
-
-1. Set up OpenAI API key:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your OPENAI_API_KEY
-   ```
-
-2. The `/intro/` page will be available
-
-To disable: Remove the intro section from `_data.yml` sections.
-
 ### Coaching/Services Section
 
 The coaching page includes pricing cards, testimonials, and FAQs. Customize or remove by:
@@ -324,7 +309,6 @@ The coaching page includes pricing cards, testimonials, and FAQs. Customize or r
 1. Push to GitHub
 2. Connect repo to [Deno Deploy](https://deno.com/deploy)
 3. Set entry point: `serve.ts`
-4. Add environment variables if using AI features
 
 ### Static Hosting (Netlify, Vercel, etc.)
 
@@ -360,11 +344,10 @@ The template includes `.github/workflows/deploy.yml` for automatic deployment.
 │       ├── fonts/
 │       ├── images/
 │       └── favicon.ico
-├── lib/
-│   ├── plugins.ts         # Lume plugins
-│   ├── types.ts           # TypeScript interfaces
-│   └── middleware/        # Server middleware
-└── intro/                 # AI intro feature (optional)
+└── lib/
+    ├── plugins.ts         # Lume plugins
+    ├── types.ts           # TypeScript interfaces
+    └── middleware/        # Server middleware
 ```
 
 ---
@@ -382,7 +365,6 @@ The template includes `.github/workflows/deploy.yml` for automatic deployment.
 - [ ] Configure analytics in `content/_site.yml` (optional)
 - [ ] Customize colors in `content/styles.css` (optional)
 - [ ] Add your writings to `content/writings/`
-- [ ] Set up `.env` for AI features (optional)
 
 ---
 

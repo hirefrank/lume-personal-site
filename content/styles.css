@@ -128,10 +128,6 @@
     @apply grid gap-6 mb-6 grid-cols-1;
   }
 
-  .main-content {
-    @apply mt-[max(4rem,calc(20vh-14rem))];
-  }
-
   .footer-list {
     @apply flex flex-wrap items-center [&>li]:mr-4 [&>li:last-child]:mr-0;
   }
@@ -268,22 +264,6 @@
   .navbar-container {
     @apply container flex justify-between items-center;
   }
-
-  .default-list {
-    @apply list-disc pl-8 mb-6;
-  }
-
-  .reset-list {
-    @apply list-none p-0 m-0;
-  }
-
-  .section-spacing {
-    @apply my-8 sm:my-12;
-  }
-
-  .content-spacing {
-    @apply my-4 sm:my-6;
-  }
 }
 
 @layer components {
@@ -309,10 +289,6 @@
 
   .logo-text {
     @apply text-xl sm:text-2xl py-1 pt-[6px] sm:pt-[8px] pb-[11px] sm:pb-[15px] text-canvas font-light no-underline inline-block w-full;
-  }
-
-  .card {
-    @apply border border-zinc-200 bg-white rounded-lg p-4 sm:p-6 flex flex-col h-full shadow-md;
   }
 
   .card-title {
