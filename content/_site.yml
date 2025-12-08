@@ -37,14 +37,6 @@ services:
   cal_booking: ""                    # e.g., "https://cal.com/you/booking"
   cal_meet: ""                       # e.g., "https://cal.com/you/meet"
 
-# -----------------------------------------------------------------------------
-# Analytics (Optional)
-# -----------------------------------------------------------------------------
-# Leave empty to disable analytics tracking
-analytics:
-  simple_analytics: false            # Enable Simple Analytics (privacy-first)
-  simple_analytics_domain: ""        # Custom domain for Simple Analytics
-  vector_id: ""                      # Vector analytics ID
 
 # -----------------------------------------------------------------------------
 # Alternative Domains (Optional)

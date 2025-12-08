@@ -37,4 +37,4 @@ server.use(cacheBusting());
 
 server.start();
 
-console.warn('Listening on http://localhost:3000');
+console.log('Listening on http://localhost:3000');

@@ -90,7 +90,6 @@ The built site will be in `_site/`. Deploy this folder to your hosting provider.
 | `profile_image` | Path to profile photo | Yes |
 | `social.*` | Social media usernames | No |
 | `services.*` | External booking URLs | No |
-| `analytics.*` | Analytics configuration | No |
 | `alt_domains` | Alternative domain redirects | No |
 
 ### Social Media Platforms
@@ -108,17 +107,6 @@ Supported platforms in `social`:
 | `youtube` | handle | `"Google"` |
 
 Leave empty or remove lines for platforms you don't use.
-
-### Analytics
-
-```yaml
-analytics:
-  simple_analytics: true          # Enable Simple Analytics
-  simple_analytics_domain: ""     # Custom domain (optional)
-  vector_id: "your-vector-id"     # Vector analytics ID
-```
-
-Set values to empty strings or `false` to disable.
 
 ### Alternative Domains
 
@@ -306,20 +294,188 @@ The coaching page includes pricing cards, testimonials, and FAQs. Customize or r
 
 ### Deno Deploy (Recommended)
 
-1. Push to GitHub
-2. Connect repo to [Deno Deploy](https://deno.com/deploy)
-3. Set entry point: `serve.ts`
+**Step 1: Push to GitHub**
 
-### Static Hosting (Netlify, Vercel, etc.)
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/yourusername/your-repo.git
+git push -u origin main
+```
+
+**Step 2: Create Deno Deploy Project**
+
+1. Go to [Deno Deploy](https://dash.deno.com/)
+2. Click "New Project"
+3. Select "Deploy from GitHub repository"
+4. Authorize Deno Deploy to access your GitHub account
+5. Select your repository
+6. Configure the project:
+   - **Entry Point**: `serve.ts`
+   - **Install Step**: Leave blank (Deno handles dependencies automatically)
+7. Click "Deploy"
+
+**Step 3: Configure Custom Domain (Optional)**
+
+1. In your Deno Deploy project settings, go to "Domains"
+2. Click "Add Domain"
+3. Enter your domain name
+4. Add the provided DNS records to your domain registrar
+5. Wait for DNS propagation (usually 5-30 minutes)
+
+**Step 4: Environment Variables (Optional)**
+
+In Deno Deploy project settings, add environment variables if needed:
+- `SITE_DOMAIN`: Your custom domain (e.g., `example.com`) - only needed if you want to override the default
+
+### Netlify
+
+**Step 1: Build the Site**
 
 ```bash
 deno task build
-# Deploy _site/ folder
 ```
 
-### GitHub Actions
+**Step 2: Deploy via Netlify CLI**
 
-The template includes `.github/workflows/deploy.yml` for automatic deployment.
+```bash
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Login
+netlify login
+
+# Deploy
+netlify deploy --prod --dir=_site
+```
+
+**Or Deploy via Netlify UI:**
+
+1. Go to [Netlify](https://app.netlify.com/)
+2. Click "Add new site" → "Deploy manually"
+3. Drag and drop the `_site` folder
+
+**Step 3: Configure Build Settings (for automatic deployments)**
+
+In `netlify.toml` (create at project root):
+
+```toml
+[build]
+  command = "curl -fsSL https://deno.land/install.sh | sh && /opt/buildhome/.deno/bin/deno task build"
+  publish = "_site"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+### Vercel
+
+**Step 1: Build the Site**
+
+```bash
+deno task build
+```
+
+**Step 2: Deploy via Vercel CLI**
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy
+vercel --prod
+```
+
+**Step 3: Configure Build Settings**
+
+Create `vercel.json` at project root:
+
+```json
+{
+  "buildCommand": "curl -fsSL https://deno.land/install.sh | sh && ~/.deno/bin/deno task build",
+  "outputDirectory": "_site",
+  "installCommand": "echo 'No install needed'"
+}
+```
+
+### GitHub Pages
+
+**Step 1: Create GitHub Action**
+
+Create `.github/workflows/gh-pages.yml`:
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Build
+        run: deno task build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+**Step 2: Enable GitHub Pages**
+
+1. Go to your repository Settings → Pages
+2. Under "Source", select "GitHub Actions"
+3. Push to main branch to trigger deployment
+
+Your site will be available at `https://yourusername.github.io/your-repo/`
+
+### Cloudflare Pages
+
+**Step 1: Push to GitHub**
+
+```bash
+git push
+```
+
+**Step 2: Create Cloudflare Pages Project**
+
+1. Go to [Cloudflare Pages](https://pages.cloudflare.com/)
+2. Click "Create a project"
+3. Connect your GitHub account and select your repository
+4. Configure build settings:
+   - **Build command**: `curl -fsSL https://deno.land/install.sh | sh && /opt/buildhome/.deno/bin/deno task build`
+   - **Build output directory**: `_site`
+   - **Root directory**: Leave empty
+5. Click "Save and Deploy"
 
 ---
 
@@ -354,17 +510,49 @@ The template includes `.github/workflows/deploy.yml` for automatic deployment.
 
 ## Customization Checklist
 
-- [ ] Update `content/_site.yml` with your information
-- [ ] Replace `content/static/images/profile.jpg`
-- [ ] Replace `content/static/favicon.ico`
-- [ ] Edit `content/pages/home.md` (homepage content)
-- [ ] Edit `content/pages/about.md`
-- [ ] Update projects in `content/_data.yml`
-- [ ] Configure navigation sections in `content/_data.yml`
-- [ ] Set up redirects in `content/_redirects.yml` (optional)
-- [ ] Configure analytics in `content/_site.yml` (optional)
-- [ ] Customize colors in `content/styles.css` (optional)
-- [ ] Add your writings to `content/writings/`
+### Essential Setup (Required)
+
+- [ ] Update `content/_site.yml` with your information:
+  - [ ] `name` - Your full name
+  - [ ] `handle` - Your username/handle
+  - [ ] `email` - Contact email address
+  - [ ] `domain` - Your domain name
+  - [ ] `tagline` - Site description for meta tags
+- [ ] Replace `content/static/images/profile.jpg` with your photo
+- [ ] Replace `content/static/favicon.ico` with your favicon
+- [ ] Update social media links in `content/_site.yml`
+- [ ] Edit `content/pages/home.md` with your homepage content
+- [ ] Edit `content/pages/about.md` with your background
+- [ ] Update projects list in `content/_data.yml` or remove draft projects
+- [ ] Configure navigation sections in `content/_data.yml` (remove pages you don't need)
+
+### Content (Recommended)
+
+- [ ] Add your writings/blog posts to `content/writings/`
+- [ ] Remove or publish draft writings
+- [ ] Add your videos to `content/videos/` (or remove the section)
+- [ ] Update or remove the coaching section in `content/_data.yml`:
+  - [ ] Pricing plans
+  - [ ] Testimonials
+  - [ ] FAQs
+
+### Optional Customization
+
+- [ ] Set up custom redirects in `content/_redirects.yml`
+- [ ] Customize color scheme in `content/styles.css`
+- [ ] Configure alternative domains in `content/_site.yml`
+- [ ] Add booking links (Cal.com, etc.) in `content/_site.yml` services section
+- [ ] Update fonts in `lib/plugins.ts` if desired
+- [ ] Test build locally: `deno task build`
+- [ ] Test server locally: `deno task serve`
+
+### Deployment
+
+- [ ] Push code to GitHub
+- [ ] Deploy to Deno Deploy or your preferred hosting platform
+- [ ] Configure custom domain (if applicable)
+- [ ] Test all pages and redirects in production
+- [ ] Update README.md with your project information
 
 ---
 

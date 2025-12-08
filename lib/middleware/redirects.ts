@@ -20,7 +20,7 @@ try {
   redirectsConfig = parseYaml(configText) as RedirectsConfig;
 } catch (error) {
   // Config file doesn't exist or is invalid - use empty redirects
-  console.warn('No _redirects.yml found or invalid format, using empty redirects');
+  // This is normal for fresh installs
 }
 
 // Convert array format to the object format Lume expects

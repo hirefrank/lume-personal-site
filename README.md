@@ -12,7 +12,6 @@ Featured in the [Lume Template Showcase](https://lume.land/showcase/).
 - Coaching/services section with pricing cards
 - Testimonials and FAQ components
 - Video embeds with metadata
-- Privacy-first analytics support (optional)
 - Configurable social links
 - URL redirects and short links
 - Automatic sitemap and robots.txt
@@ -101,13 +100,18 @@ deno task build
 
 ## Customization Checklist
 
-- [ ] Edit `content/_site.yml` with your info
-- [ ] Replace `content/static/images/profile.jpg`
-- [ ] Replace `content/static/favicon.ico`
-- [ ] Update pages in `content/pages/`
-- [ ] Update projects in `content/_data.yml`
+Essential setup:
+- [ ] Edit `content/_site.yml` with your info (name, email, domain, social links)
+- [ ] Replace `content/static/images/profile.jpg` with your photo
+- [ ] Replace `content/static/favicon.ico` with your favicon
+- [ ] Update pages in `content/pages/` (home, about, etc.)
+- [ ] Update or remove projects in `content/_data.yml`
+- [ ] Add your writings to `content/writings/`
+
+Optional:
 - [ ] Configure redirects in `content/_redirects.yml`
 - [ ] Customize colors in `content/styles.css`
+- [ ] Update coaching section (pricing, testimonials, FAQs) or remove it
 
 ## Documentation
 
