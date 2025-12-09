@@ -1,6 +1,8 @@
-# Lume Personal Website Template
+# Lume Personal Website Template - Complete Guide
 
 A modern, customizable personal website template built with [Lume](https://lume.land/) (Deno's static site generator), Tailwind CSS, and VTO templates.
+
+This comprehensive guide covers everything you need to set up and customize your personal website. For a quick overview, see [README.md](README.md).
 
 ## Features
 
@@ -562,9 +564,27 @@ MIT License - Feel free to use this template for personal or commercial projects
 
 ---
 
+## Support & Community
+
+- **Documentation**: This guide and [README.md](README.md)
+- **Lume Documentation**: [lume.land/docs](https://lume.land/docs/)
+- **Issues & Feature Requests**: [GitHub Issues](https://github.com/hirefrank/lume-personal-site/issues)
+- **Lume Discord**: [Join the community](https://discord.gg/YbTmpACHWB)
+
 ## Credits
 
 Built with:
 - [Lume](https://lume.land/) - Static site generator for Deno
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
 - [VTO](https://lume.land/plugins/vento/) - Template engine
+
+## Contributing
+
+Contributions are welcome! If you find bugs or have ideas for improvements:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+Please ensure your code follows the existing style and patterns.
