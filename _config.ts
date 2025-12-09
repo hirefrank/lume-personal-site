@@ -1,6 +1,6 @@
 import lume from 'lume/mod.ts';
 import plugins from './lib/plugins.ts';
-import { redirects, cacheBusting, notFound } from './lib/middleware.ts';
+import { redirects, notFound } from './lib/middleware.ts';
 import { parse as parseYaml } from 'lume/deps/yaml.ts';
 import type { SiteConfig } from './lib/types.ts';
 
@@ -18,7 +18,7 @@ const site = lume({
   src: './content',
   location: new URL(siteUrl),
   server: {
-    middlewares: [redirects, notFound(), cacheBusting()],
+    middlewares: [redirects, notFound()],
   },
 });
 
@@ -33,8 +33,6 @@ pageConfigs.forEach(({ path, layout, tags, indexable }) => {
   if (tags) site.data('tags', tags, path);
   if (indexable) site.data('indexable', indexable, path);
 });
-
-site.data('cacheBusterVersion', `v${Date.now()}`);
 
 // Make site config available to templates
 site.data('site', {
