@@ -3,14 +3,11 @@ indexable: true
 title: Let's Connect
 url: /contact/
 description:
-  'Frank Harris is a seasoned product leader with over 20 years of experience
-  leading teams and building products across companies like Slack, Etsy, and
-  Google.'
+  'Get in touch to discuss projects, collaborations, or just to say hello. Always happy to connect with fellow creators and builders.'
 ---
 
-I’m always excited to meet product folks and thoughtful leaders.
+I'm always interested in connecting with fellow creators, builders, and curious minds.
 
-Whether you’re working through challenges in product strategy, team dynamics, or
-leadership growth, I’d love to help.
+Whether you want to discuss a project, collaborate on something interesting, or just say hello, I'd love to hear from you.
 
-(I try to meet someone new every day. Maybe that’s you?)
+Drop me a line and let's chat!

@@ -8,7 +8,7 @@ sections:
     label: 'About'
     show: true
   - url: '/coaching/'
-    label: 'Coaching'
+    label: 'Services'
     show: true
     includes:
       - 'coaching.vto'
@@ -25,120 +25,101 @@ sections:
       - 'social.vto'
 
 projects:
-  - title: 'Gmail Attachment Extractor'
-    summary: 'Automatically saves attachments from labeled emails to Google Drive.'
-    date: '2024-12-28'
-    emoji: '📎'
+  - title: 'Task Management App'
+    summary: 'A lightweight task manager built with React and local storage for simple productivity tracking.'
+    date: '2024-11-15'
+    emoji: '✅'
     post: null
-    url: 'https://github.com/hirefrank/gmail-attachment-extractor'
-  - title: 'Tech Compensation Calculator'
-    summary: 'Project and compare total compensation packages including salary growth, bonuses, and equity grants.'
-    date: '2024-12-15'
-    emoji: '💰'
-    post: null
-    url: 'https://calculator.hirefrank.com'
-  - title: 'Field Guide to Culinary Democracy'
-    summary: "I analyzed over 500,000 words from 7,605 The NY Times Cooking comments labeled 'most helpful'."
-    date: '2024-10-07'
-    emoji: '🍽️'
-    post: null
-    url: 'https://medium.com/@hirefrank/the-new-york-times-cooking-comments-a-field-guide-to-culinary-democracy-in-the-digital-age-0ed967bc5a81'
-  - title: 'AI Reading List'
-    summary: "I used AI to outsource my kids' reading list in 30 seconds."
-    date: '2024-09-23'
+    url: 'https://github.com/yourusername/task-app'
+  - title: 'API Documentation Generator'
+    summary: 'Automatically generate beautiful API docs from OpenAPI specs with live examples.'
+    date: '2024-09-20'
     emoji: '📚'
     post: null
-    url: 'https://medium.com/@hirefrank/how-i-used-ai-to-outsource-my-kids-reading-list-in-30-seconds-58994092131f'
-  - title: 'Hardening Your VPS'
-    summary: "Learn how to harden your VPS to make it more secure. It's not as scary as it sounds."
-    date: '2024-09-05'
-    emoji: '🔒'
+    url: 'https://github.com/yourusername/api-docs'
+  - title: 'Weather Dashboard'
+    summary: 'Real-time weather data visualization with forecasts and historical trends.'
+    date: '2024-07-10'
+    emoji: '🌦️'
     post: null
-    url: 'https://medium.com/@hirefrank/you-can-do-hard-things-hardening-your-vps-e838af7dc3c9'
-  - title: 'pg-to-sqlite'
-    summary: 'A Bash script that automates the migration of PostgreSQL databases to SQLite.'
-    date: '2024-04-20'
-    emoji: '🗃️'
+    url: 'https://github.com/yourusername/weather-dashboard'
+  - title: 'Markdown Blog Engine'
+    summary: 'A minimal static site generator for markdown-based blogs with built-in syntax highlighting.'
+    date: '2024-05-03'
+    emoji: '✍️'
     post: null
-    url: 'https://github.com/hirefrank/pg-to-sqlite'
-  - title: 'Zoom Backup'
-    summary: 'Automates the process of backing up recorded Zoom meetings to a GCS bucket.'
-    date: '2021-02-27'
-    emoji: '💾'
+    url: 'https://github.com/yourusername/md-blog'
+  - title: 'Color Palette Generator'
+    summary: 'Generate accessible color palettes with contrast checking and export to various formats.'
+    date: '2024-03-18'
+    emoji: '🎨'
     post: null
-    url: 'https://github.com/hirefrank/zoom-backup'
-  - title: 'Kitchen Rodeo'
-    summary: 'A virtual community that brought people together to cook and give back during the pandemic, raising over $175k.'
-    date: '2020-03-20'
-    emoji: '🐴'
+    url: 'https://github.com/yourusername/palette-gen'
+  - title: 'Data Visualization Library'
+    summary: 'A TypeScript library for creating interactive charts and graphs with minimal configuration.'
+    date: '2023-12-05'
+    emoji: '📊'
     post: null
-    url: 'https://kitchen.rodeo'
-  - title: 'Equinox Scheduler'
-    summary: 'Easily automate Equinox class reservations with Google Apps Script.'
-    date: '2018-09-01'
-    emoji: '🗓️'
+    url: 'https://github.com/yourusername/viz-lib'
+  - title: 'CLI Tool for Developers'
+    summary: 'A command-line utility to streamline common development workflows and repetitive tasks.'
+    date: '2023-09-22'
+    emoji: '⚡'
     post: null
-    url: 'https://github.com/hirefrank/equinox-scheduler'
-  - title: 'Plaid + Google Sheets'
-    summary: 'Automates the process of fetching transaction data and maintaining a record in a Google Sheet.'
-    date: '2018-03-01'
-    emoji: '🏦'
+    url: 'https://github.com/yourusername/dev-cli'
+  - title: 'Browser Extension'
+    summary: 'Enhance your browsing experience with productivity features and custom shortcuts.'
+    date: '2023-06-14'
+    emoji: '🔧'
     post: null
-    url: 'https://github.com/hirefrank/plaid-txns-google-sheets'
-  - title: 'NYC Gas Finder'
-    summary: 'A real-time Twitterbot tracking fuel availability post-Hurricane Sandy.'
-    date: '2014-06-04'
-    emoji: '⛽'
-    post: null
-    url: 'https://github.com/hirefrank/nycgasfinder'
+    url: 'https://github.com/yourusername/browser-ext'
 
 plans:
-  - name: Individual Contributor
-    price: $300
+  - name: Starter
+    price: $150
     unit: per session
-    description: 'Accelerate your product career with focused, skill-building coaching.'
+    description: 'Perfect for individuals looking to accelerate their skills and career growth.'
     features:
       - 45 minute remote session
-      - Product feedback
-      - Stakeholder management
-      - Career development planning
+      - Skill development guidance
+      - Career planning support
+      - Goal setting & accountability
       - 2 session minimum
-  - name: Leader
-    price: $500
+  - name: Professional
+    price: $300
     unit: per session
-    description: 'Elevate your leadership skills and navigate product challenges.'
+    description: 'Comprehensive support for leaders and teams tackling complex challenges.'
     features:
-      - 60 minute remote or NYC session
-      - Leading and scaling teams
-      - Guidance on product strategy
-      - Managing difficult conversations
-      - Go-to-market plans & pricing
-      - Navigating company milestones
-      - 360 feedback from your team
-      - Available on Slack between sessions
-      - 12 session minimum
+      - 60 minute remote or in-person session
+      - Strategic planning support
+      - Team dynamics coaching
+      - Leadership development
+      - Project & initiative guidance
+      - Stakeholder management
+      - Email support between sessions
+      - 6 session minimum
 
 testimonials:
-  - quote: "Frank had a material, double digit percentage, impact on our revenue within a month of our first session. He combines a natural caring and thoughtfulness with a wealth of professional experience. If this is your first time stepping into a product leadership position, or are just looking for a thought partner, I don't think you'll regret giving Frank a try."
-    name: Tomas Reimers
-    title: Co-Founder, Graphite
-  - quote: "As a first-time leader of digital product and technology teams, Frank's coaching was a game-changer. He was an exceptional sounding board, guiding me through essential operational processes like roadmap planning, project tracking, and goal setting. His insights into organizational structure and hiring were key to successfully scaling our tech team. Frank's hands-on approach was evident when he took the time to meet with one of my team members, which deepened our team's connection and boosted overall performance. His deep expertise made my transition into leadership smoother and far more effective."
-    name: Majed Masad
-    title: President, Mejuri
-  - quote: "Frank is an incredible thought partner, and is the kind of person who makes you and your organization more stable, grounded and thoughtful. Frank and I have worked together at two companies, most recently when he was interim head of product at InVision while I was on parental leave. Frank is the person you want in your personal board of directors.  He has exceptionally high EQ and people sense -- he can provide empathy and humor that helps you navigate the hardest situations, and at the same time objectivity exactly when you need it. I've learned so much from him, and he made me so much better at my job."
-    name: Eleanor Morgan
-    title: CEO & Founder, Stealth Startup
-  - quote: "I'm incredibly grateful for the mentorship and guidance Frank has provided me throughout my career. He's helped me navigate complex team dynamics, refine my product strategy, and overcome challenges I faced at work. With Frank's support, I've been able to grow into product leadership roles and develop the confidence necessary to succeed in this field. He is always available to offer practical advice, and a fresh perspective. I highly recommend him to anyone looking to take their product career to the next level."
-    name: Betty Liao
-    title: Product, Google
+  - quote: "Working together has been transformative for my career. The guidance I received helped me navigate complex situations with confidence and clarity. I've grown more in the past few months than I have in years."
+    name: Alex Chen
+    title: Senior Product Manager, TechCo
+  - quote: "The strategic insights and practical frameworks provided were exactly what our team needed. We've become more aligned, efficient, and effective in how we work together."
+    name: Jordan Smith
+    title: Engineering Lead, StartupXYZ
+  - quote: "I was struggling with imposter syndrome in my new leadership role. The coaching helped me find my voice and develop the confidence to lead authentically. Highly recommend."
+    name: Sam Taylor
+    title: VP of Product, GrowthApp
+  - quote: "The combination of empathy and practical advice is rare. I always leave sessions with actionable insights and renewed energy to tackle my challenges."
+    name: Morgan Lee
+    title: Design Director, CreativeCo
 
 faqs:
-  - question: What does a typical coaching session look like?
-    answer: Each session is tailored to the client's specific needs and goals. Sessions involve discussing current challenges, strategizing solutions, and supporting growth as a product leader.
-  - question: How long are the coaching engagements?
-    answer: Coaching engagements typically last 3-6 months, but can be adjusted based on individual needs and progress. Regular reviews ensure the approach is optimized for maximum value.
-  - question: Can this be expensed against a Learning & Development budget?
-    answer: Yes. Many clients use L&D budgets for coaching as it aligns with their career development goals. Detailed invoices are available for expense claims.
+  - question: What does a typical session look like?
+    answer: Each session is tailored to your specific needs and goals. We'll discuss current challenges, explore solutions, and create actionable plans to help you move forward.
+  - question: How long are typical engagements?
+    answer: Engagements typically last 3-6 months, but can be adjusted based on your needs and progress. We'll regularly review to ensure you're getting maximum value.
+  - question: Can I use my Learning & Development budget?
+    answer: Yes! Many clients expense these sessions through their company's L&D budget. Detailed invoices are provided for reimbursement.
 
 metas:
   site: =site.description

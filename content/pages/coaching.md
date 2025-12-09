@@ -2,24 +2,15 @@
 layout: simple.vto
 indexable: true
 url: '/coaching/'
-title: Hands-on Coaching
+title: Work With Me
 description:
-  'A coaching practice dedicated to guiding leaders through the tricky stuff of
-  building products and high-performing teams.'
+  'Offering consulting, coaching, and mentorship to help teams and individuals achieve their goals through hands-on guidance and strategic thinking.'
 ---
 
-Building products is hard. Leading the people who build them? Harder.
+Building great products requires more than just technical skills — it takes strategic thinking, clear communication, and the right guidance at the right time.
 
-Whether it's stepping into a Staff+ role, managing a growing team, or navigating
-founder dynamics, coaching helps leaders move through uncertainty with more
-clarity, confidence, and impact.
+Whether you're launching a new initiative, scaling a team, or navigating complex challenges, I help individuals and teams move forward with clarity and confidence.
 
-Frank works with senior ICs, first-time managers, and seasoned VPs across
-startups, scale-ups, and public companies &mdash; spanning B2B, B2C, regulated
-industries, and high-growth tech. His coaching is grounded in ICF-aligned
-principles and shaped by 20+ years of leadership experience at companies like
-Slack, Etsy, Google, Betterment, Casper, and InVision.
+I work with founders, product leaders, and creative professionals across industries — bringing a blend of technical expertise, strategic insight, and practical experience to every engagement.
 
-Sessions are hands-on and reflective, blending structured frameworks, sharp
-questions, and metaphor-driven insight to help leaders operate with intention
-and grow on purpose.
+Sessions are collaborative and action-oriented, combining frameworks, thoughtful questions, and real-world examples to help you make better decisions and achieve meaningful progress.
